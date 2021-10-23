@@ -48,7 +48,10 @@ const LoginForm = ({ history }) => {
     }
     if (auth) {
       console.log('로그인 성공');
-      dispatch(check());
+      console.log(auth);
+      const { access_token } = auth;
+      console.log(access_token);
+      dispatch(check({ access_token }));
     }
   }, [auth, authError, dispatch]);
 

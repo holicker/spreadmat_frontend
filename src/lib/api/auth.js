@@ -25,4 +25,5 @@ export const register = ({ username, password }) =>
   client.post('/member/register', { username, password });
 
 // 로그인 상태 확인
-export const check = () => client.get('/test');
+export const check = ({ access_token }) =>
+  client.get('/test', { headers: { Authorization: `Bearer ${access_token}` } });
